@@ -9,6 +9,7 @@
 const buttonEl = document.querySelector('.btn');
 const buttonReload = document.querySelector('.reload');
 const containerEl = document.querySelector('.container');
+const bannerEl = document.querySelector('.banner');
 
 buttonEl.addEventListener('click', function () {
     buttonEl.style.display = 'none';
@@ -43,23 +44,34 @@ function timer() {
 }
 
 function userInteract () {
+
     const userNumbList = [];
+    const numberList = [];
+    
     for (let i = 0; i < 5; i++){
-        const userNumber = Number(prompt('Inserisci un numero!'));
-        userNumbList.push(userNumber);
+        const userNumber = Number(prompt(`Inserisci il ${i + 1}° numero!`));
+        // userNumbList.push(userNumber);
+        
+        let numbRight = document.querySelector(`.number-${i}`).innerHTML;
+        numberList.push(Number(numbRight));
+        
+        if (userNumber === numberList[i]) {
+            userNumbList.push(userNumber);
+        }
     } 
+    bannerEl.style.display = 'block';
     console.log(userNumbList);
     // const numbList = document.querySelectorAll('[class^="number-"]').innerHTML;
     // console.log(numbList)
-    const numberList = [];
-
-    for (let i = 0; i < 5; i++){
-        let numbRight = document.querySelector(`.number-${i}`).innerHTML;
-        numberList.push(Number(numbRight));
-    }
     console.log(numberList)
 
-    
+    if (userNumbList.length == 0){
+        bannerEl.innerText = 'Hai indovinato 0 numeri!';
+    } else if ( userNumbList.length == 1){
+        bannerEl.innerText = `Hai indovinato 1 numero! Numero indovinato:${userNumbList}`;
+    } else {
+        bannerEl.innerText = `Hai indovinato ${userNumbList.length} numeri! Numeri indovinati: ${userNumbList}`;
+    }
 }
 
 
