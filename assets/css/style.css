@@ -1,0 +1,13 @@
+.box {
+    border: 2px solid black;
+    height: 200px;
+}
+
+#title {
+    margin-top: 100px;
+}
+
+.number {
+    font-size: 100px;
+}
+
