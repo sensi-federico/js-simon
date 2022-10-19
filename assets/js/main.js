@@ -1,5 +1,4 @@
 // Descrizione:
-// Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
 
 
 
@@ -15,6 +14,7 @@ buttonEl.addEventListener('click', function () {
     buttonEl.style.display = 'none';
     numbers();
     setTimeout(timer, 1000);
+    setTimeout(userInteract, 1000);
 })
 
 buttonReload.addEventListener('click', function(){
@@ -43,11 +43,25 @@ function timer() {
 }
 
 function userInteract () {
-    const numbList = [];
+    const userNumbList = [];
     for (let i = 0; i < 5; i++){
         const userNumber = Number(prompt('Inserisci un numero!'));
-        numbList.push(userNumber);
+        userNumbList.push(userNumber);
     } 
+    console.log(userNumbList);
+    // const numbList = document.querySelectorAll('[class^="number-"]').innerHTML;
+    // console.log(numbList)
+    const numberList = [];
 
+    for (let i = 0; i < 5; i++){
+        let numbRight = document.querySelector(`.number-${i}`).innerHTML;
+        numberList.push(Number(numbRight));
+    }
+    console.log(numberList)
+
+    
 }
 
+
+// 3- Dopo che sono stati inseriti i 5 numeri 
+// il software dice quanti e quali dei numeri da indovinare sono stati individuati.
