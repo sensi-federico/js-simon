@@ -11,3 +11,9 @@
     font-size: 100px;
 }
 
+.reload {
+    display: none;
+    width: 100px;
+    margin-top: 100px;
+}
+
